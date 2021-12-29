@@ -5,8 +5,8 @@
     <title>Editor de border-radius</title>
     <link rel="stylesheet" type='text/css' href="/styles/reset.css"></link>
     <link rel="stylesheet"  type='text/css' href="/styles/global.css"></link>
+    <script src="/script.js"  type="script" ></script>
 
-    <script src="/script.js" defer type="text/javascript"></script>
 </head>
 <body>
     <main>
@@ -16,11 +16,29 @@
             <span id='selector-border-bottom-right' class="circle-selector"></span>
             <span id='selector-border-bottom-left' class="circle-selector"></span> -->
         </div>
+            <script>
+                let formExample = document.getElementById('element-example');
+                let borderRadius = 0;
+                let borderTopRight;
+                let borderTopLeft;
+                let borderBottomLeft;
+                let borderBottomRight;
 
-            <input class="pattern-input" type="number">
-            <input class="pattern-input" type="number">
-            <input class="pattern-input" type="number"> 
-            <input class="pattern-input" type="number">
+
+                function changeBorder(){
+                    formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + 'rem';
+                    formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + 'rem';
+                    formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + 'rem';
+                    formExample.style.borderTopRightRadius = document.getElementById('topRight').value + 'rem';
+
+                    console.log("rodou")
+                  }
+            </script>
+
+            <input id="topLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+            <input id="topRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+            <input id="bottomLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0"> 
+            <input id="bottomRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
     </main> 
 </body>
 </html>
