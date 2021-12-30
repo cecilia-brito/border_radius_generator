@@ -38,12 +38,18 @@
             <input id="bottomLeft" class="pattern-input" type="text" onkeyup="changeBorder()" value="0"> 
             <input id="bottomRight" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
 
-            <blockquote>
-
-            </blockquote>
+            <div id="codeBlock" class="copyCode">
+                <input id="code" class="paragraghCode pattern-input" type="text" value="border-radius: 0rem 0rem 0rem 0rem;" disabled>
+                <div id="copy" class="div-copy-img">
+                    <img src="/assets/copy-img.svg">
+                </div>
+            </div>
         </div>
+
             <script>
                 let formExample = document.getElementById('element-example');
+                let btnCopy = document.getElementById('copy');
+                let code = document.getElementById('code');
                 let borderMeasure;
                 let borderTopRight;
                 let borderTopLeft;
@@ -73,15 +79,34 @@
                     }
 
                 function changeBorder(){
+
                     borderMeasure = document.getElementById('input-unit-of-measurement');
 
-                    formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + borderMeasure.value;
-                    formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + borderMeasure.value;
-                    formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + borderMeasure.value;
-                    formExample.style.borderTopRightRadius = document.getElementById('topRight').value + borderMeasure.value;
+                    if(borderMeasure.value =='px' || borderMeasure.value=='pt' || borderMeasure.value=='cm' || borderMeasure.value=='mm' || borderMeasure.value=='pc' || borderMeasure.value=='em' || borderMeasure.value=='rem' || borderMeasure.value=='%' || borderMeasure.value=='ex' || borderMeasure.value=='ch' || borderMeasure.value=='vw' || borderMeasure.value=='vh'){
+                        formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + borderMeasure.value;
+                        formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + borderMeasure.value;
+                        formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + borderMeasure.value;
+                        formExample.style.borderTopRightRadius = document.getElementById('topRight').value + borderMeasure.value;
+                    } else{
+                        alert('Insira uma unidade de medida válida. Ex: rem, px, em, % ... ou insira valores positivos de border-radius');
+                    }
 
+                    addCode();
                     console.log("rodou")
+
                   }
+
+                function copyCode(){
+                    code.select();
+                    code.setSelectionRange(0, 99999)
+                    document.execCommand("copy");
+                }
+
+                function addCode(){
+                    code.value = 'border-radius: ' +  document.getElementById('topLeft').value + borderMeasure.value + ' ' + document.getElementById('topRight').value + borderMeasure.value+ ' '+ document.getElementById('bottomLeft').value +borderMeasure.value+' ' + document.getElementById('topRight').value + borderMeasure.value + ';';
+                }
+
+                btnCopy.addEventListener('click', copyCode);
             </script>
     </main> 
 </body>
