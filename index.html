@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Editor de border-radius</title>
+
     <link rel="stylesheet" type='text/css' href="/editor_border_radius/styles/reset.css"></link>
     <link rel="stylesheet"  type='text/css' href="/editor_border_radius/styles/global.css"></link>
-    <!-- <script src="/script.js"  type="script" ></script> -->
 
+    <!-- importando fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=VT323&display=swap" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -59,27 +59,29 @@
                 let divCheck
                 let pageHtml;
 
+                //testa se usuário escolheu rem como unidade de medida e se sim deixa visível um
+                //checkbox perguntando sobre o font-size da página
                 function thisIsRem(){
+                    changeBorder();
+                    divCheck = document.getElementById('divCheck');
+                    check = document.getElementById('forRem');
+                    pageHtml = document.querySelector("html");
 
-                        changeBorder();
-                        
-                        divCheck = document.getElementById('divCheck');
-                        check = document.getElementById('forRem');
-                        pageHtml = document.querySelector("html");
-
-                        if(borderMeasure.value != 'rem'){
-                            divCheck.classList.add("desactive");
-                        } else{
-                            divCheck.classList.remove("desactive");
-                        }
-
-                        if(borderMeasure.value == 'rem' && check.checked){
-                            pageHtml.style.fontSize = 62.5 + '%'
-                        }
+                    if(borderMeasure.value != 'rem'){
+                        divCheck.classList.add("desactive");
+                    } else{
+                        divCheck.classList.remove("desactive");
                     }
 
-                function changeBorder(){
+                    //testa se o usuário marcou que quer usar o font-size da página como 62.5%, 
+                    //o que permite usar rem como unidade por todo documento já que o font-size
+                    //da página se torna 10px
+                    if(borderMeasure.value == 'rem' && check.checked){
+                            pageHtml.style.fontSize = 62.5 + '%'
+                    }
+                }
 
+                function changeBorder(){
                     borderMeasure = document.getElementById('input-unit-of-measurement');
 
                     if(borderMeasure.value =='px' || borderMeasure.value=='pt' || borderMeasure.value=='cm' || borderMeasure.value=='mm' || borderMeasure.value=='pc' || borderMeasure.value=='em' || borderMeasure.value=='rem' || borderMeasure.value=='%' || borderMeasure.value=='ex' || borderMeasure.value=='ch' || borderMeasure.value=='vw' || borderMeasure.value=='vh'){
@@ -96,14 +98,15 @@
 
                   }
 
+                //muda o código que aparece para o usuário copiar de acordo com os valores passados pelo usuário
+                function addCode(){
+                    code.value = 'border-radius: ' +  document.getElementById('topLeft').value + borderMeasure.value + ' ' + document.getElementById('topRight').value + borderMeasure.value+ ' '+ document.getElementById('bottomLeft').value +borderMeasure.value+' ' + document.getElementById('topRight').value + borderMeasure.value + ';';
+                }
+
                 function copyCode(){
                     code.select();
                     code.setSelectionRange(0, 99999)
                     document.execCommand("copy");
-                }
-
-                function addCode(){
-                    code.value = 'border-radius: ' +  document.getElementById('topLeft').value + borderMeasure.value + ' ' + document.getElementById('topRight').value + borderMeasure.value+ ' '+ document.getElementById('bottomLeft').value +borderMeasure.value+' ' + document.getElementById('topRight').value + borderMeasure.value + ';';
                 }
 
                 btnCopy.addEventListener('click', copyCode);
