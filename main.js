@@ -1,6 +1,6 @@
-import addCode from '/editor_border_radius/components/addCode.js'
-import changeBorder from '/editor_border_radius/components/changeBorder.js'
-import thisIsRem from '/editor_border_radius/components/thisIsRem.js' 
+import addCode from '/generator_border_radius/components/addCode.js'
+import changeBorder from '/generator_border_radius/components/changeBorder.js'
+import thisIsRem from '/generator_border_radius/components/thisIsRem.js' 
 
 borderTopLeft.onkeyup = function changingBorder(){
     if(borderMeasure.value =='px' || borderMeasure.value=='pt' || borderMeasure.value=='cm' || borderMeasure.value=='mm' || borderMeasure.value=='pc' || borderMeasure.value=='em' || borderMeasure.value=='rem' || borderMeasure.value=='%' || borderMeasure.value=='ex' || borderMeasure.value=='ch' || borderMeasure.value=='vw' || borderMeasure.value=='vh'){
