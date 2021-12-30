@@ -21,95 +21,48 @@
         <h1 class="title">Border Radius</h1>
 
         <div class="box-form-inputs">
-            <input id="input-unit-of-measurement" class="pattern-input" type="text" value="rem" onkeyup="thisIsRem()">
+            <input id="input-unit-of-measurement" class="pattern-input" type="text" value="rem">
 
             <div class="checkForRem" id="divCheck">
                 <input id="forRem" type="checkbox" class="input-checkbox">
                 <label for="forRem">Considerar font-size da tag html como 62.5%?</label>
             </div>
 
-            <input id="topLeft" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
-            <input id="topRight" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
+            <input id="topLeft" class="pattern-input" type="text" value="0">
+            <input id="topRight" class="pattern-input" type="text" value="0">
 
             <div class="form" id="element-example">
             </div>
 
-            <input id="bottomLeft" class="pattern-input" type="text" onkeyup="changeBorder()" value="0"> 
-            <input id="bottomRight" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
+            <input id="bottomLeft" class="pattern-input" type="text" value="0"> 
+            <input id="bottomRight" class="pattern-input" type="text"  value="0">
 
             <div id="codeBlock" class="copyCode">
-                <input id="code" class="paragraghCode pattern-input" type="text" value="border-radius: 0rem 0rem 0rem 0rem;" disabled>
+                <input id="code" class="paragraghCode pattern-input" type="text" value="border-radius: 0rem 0rem 0rem 0rem;" readonly>
                 <div id="copy" class="div-copy-img">
                     <img src="/assets/copy-img.svg">
                 </div>
             </div>
         </div>
-
-            <script>
-                let formExample = document.getElementById('element-example');
-                let btnCopy = document.getElementById('copy');
-                let code = document.getElementById('code');
-                let borderMeasure;
-                let borderTopRight;
-                let borderTopLeft;
-                let borderBottomLeft;
-                let borderBottomRight;
-                let check;
-                let divCheck
-                let pageHtml;
-
-                //testa se usuário escolheu rem como unidade de medida e se sim deixa visível um
-                //checkbox perguntando sobre o font-size da página
-                function thisIsRem(){
-                    changeBorder();
-                    divCheck = document.getElementById('divCheck');
-                    check = document.getElementById('forRem');
-                    pageHtml = document.querySelector("html");
-
-                    if(borderMeasure.value != 'rem'){
-                        divCheck.classList.add("desactive");
-                    } else{
-                        divCheck.classList.remove("desactive");
-                    }
-
-                    //testa se o usuário marcou que quer usar o font-size da página como 62.5%, 
-                    //o que permite usar rem como unidade por todo documento já que o font-size
-                    //da página se torna 10px
-                    if(borderMeasure.value == 'rem' && check.checked){
-                            pageHtml.style.fontSize = 62.5 + '%'
-                    }
-                }
-
-                function changeBorder(){
-                    borderMeasure = document.getElementById('input-unit-of-measurement');
-
-                    if(borderMeasure.value =='px' || borderMeasure.value=='pt' || borderMeasure.value=='cm' || borderMeasure.value=='mm' || borderMeasure.value=='pc' || borderMeasure.value=='em' || borderMeasure.value=='rem' || borderMeasure.value=='%' || borderMeasure.value=='ex' || borderMeasure.value=='ch' || borderMeasure.value=='vw' || borderMeasure.value=='vh'){
-                        formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + borderMeasure.value;
-                        formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + borderMeasure.value;
-                        formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + borderMeasure.value;
-                        formExample.style.borderTopRightRadius = document.getElementById('topRight').value + borderMeasure.value;
-                    } else{
-                        alert('Insira uma unidade de medida válida. Ex: rem, px, em, % ... ou insira valores positivos de border-radius');
-                    }
-
-                    addCode();
-                    console.log("rodou")
-
-                  }
-
-                //muda o código que aparece para o usuário copiar de acordo com os valores passados pelo usuário
-                function addCode(){
-                    code.value = 'border-radius: ' +  document.getElementById('topLeft').value + borderMeasure.value + ' ' + document.getElementById('topRight').value + borderMeasure.value+ ' '+ document.getElementById('bottomLeft').value +borderMeasure.value+' ' + document.getElementById('topRight').value + borderMeasure.value + ';';
-                }
-
-                function copyCode(){
-                    code.select();
-                    code.setSelectionRange(0, 99999)
-                    document.execCommand("copy");
-                }
-
-                btnCopy.addEventListener('click', copyCode);
-            </script>
     </main> 
+    <script>
+        const formExample = document.getElementById('element-example');
+        let borderMeasure = document.getElementById('input-unit-of-measurement');
+        let borderTopRight =  document.getElementById('topRight');
+        let borderTopLeft = document.getElementById('topLeft');
+        let borderBottomLeft = document.getElementById('bottomLeft');
+        let borderBottomRight = document.getElementById('bottomRight');
+        let btnCopy = document.getElementById('copy');
+        let code = document.getElementById('code');
+
+        function copyCode(){
+                    code.select();
+                    document.execCommand('copy');
+                    console.log('copiei');
+        }
+
+        btnCopy.addEventListener('click', copyCode);
+    </script>
+    <script src="/main.js" type="module"></script>
 </body>
 </html>
