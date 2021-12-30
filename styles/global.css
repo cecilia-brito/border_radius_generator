@@ -6,27 +6,36 @@ body{
     background-color: black;
 }
 
-main{
-    width: 50rem;
-    height: 50rem;
-    margin: auto;
+
+.box-form-inputs{
+    width: 40rem;
+    height: auto;
+    display: grid;
+    margin: 10rem auto;
+    grid-template-columns: 20 20rem;
+    grid-template-rows: 5rem 30rem 5rem;
+    grid-template-areas: "input1 input2"
+                          "form form"
+                          "input3 input4";
 }
 
 .form{
-    margin: 10rem auto 5rem auto;
+    /* margin: 10rem auto 5rem auto; */
+    display: block;
     width: 40rem;
     height: 30rem;
     background-color: white;
     clip-path: inset(0 0 0 0);
+    grid-area: form;
 }
 
-.circle-selector{
+/* .circle-selector{
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
     clip-path: circle();
     background-color: rgb(221, 221, 221);
-}
+} */
 
 /* #selector-border-top-right{
     margin-left: .8rem;
@@ -49,9 +58,34 @@ main{
 
 
 .pattern-input{
-    margin-left: 5rem;
+    /* margin-left: 5rem;
     margin-right: .5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
+    margin-bottom: 1rem; */
+    display: block;
+    background: none;
+    color: white;
+    border: none;
+    outline: none;
+    width: 3rem;
+    font-family: 'Nova Mono', monospace;
+    font-weight: bold;
+    font-size: 2.4rem;
 }
 
+#topLeft{
+    grid-area: input1;
+}
+
+#topRight{
+    grid-area: input2;
+    margin-left: 35rem;
+}
+
+#bottomLeft{
+    grid-area: input3;
+}
+
+#bottomRight{
+    grid-area: input4;
+    margin-left: 35rem;
+}

@@ -7,14 +7,28 @@
     <link rel="stylesheet"  type='text/css' href="/styles/global.css"></link>
     <!-- <script src="/script.js"  type="script" ></script> -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=VT323&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <main>
-        <div class="form" id="element-example">
+        <div class="box-form-inputs">
+            <input class="pattern-input" type="text">
+            <input class="pattern-input" type="number">
+            <input id="topLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+            <input id="topRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+
+            <div class="form" id="element-example">
+            </div>
+
+            <input id="bottomLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0"> 
+            <input id="bottomRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
         </div>
             <script>
                 let formExample = document.getElementById('element-example');
-                let borderRadius = 0;
+                let borderMeadure;
                 let borderTopRight;
                 let borderTopLeft;
                 let borderBottomLeft;
@@ -30,11 +44,6 @@
                     console.log("rodou")
                   }
             </script>
-
-            <input id="topLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
-            <input id="topRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
-            <input id="bottomLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0"> 
-            <input id="bottomRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
     </main> 
 </body>
 </html>
