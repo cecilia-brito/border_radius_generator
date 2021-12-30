@@ -12,7 +12,7 @@
   <li>[ ] Acessibilidade Web</li>
   <li>[Ok] Botão de copiar para área de transferência</li>
   <li>[Ok] Validar se a unidade de medida fornecida pelo usuário é válida <li/>
-  <li>[] Validar se o valor do border radius fornecido pelo usuário é válido<li/>
+  <li>[ ] Validar se o valor do border radius fornecido pelo usuário é válido<li/>
 </ul>
 
 ## Desenvolvimento 
