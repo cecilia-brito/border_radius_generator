@@ -1,4 +1,4 @@
-# editor_border_radius
+# generator_border_radius
 
 Tabela de conteúdos
 =================
@@ -13,7 +13,7 @@ Tabela de conteúdos
 
 ## 📝Descrição do Projeto
 
-<p>Visualizador de border radius online. O usuário pode colocar os valores de cada border radius, escolher a unidade de medida e visualizar o resultado na figura, além de copiar o código</p>
+<p>Gerador de border radius online. O usuário pode colocar os valores de cada border radius, escolher a unidade de medida e visualizar o resultado na figura, além de copiar o código</p>
 
 ## 🕗Status
 
