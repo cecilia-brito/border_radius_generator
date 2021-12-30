@@ -1,6 +1,5 @@
 //testa se usuário escolheu rem como unidade de medida e se sim deixa visível um
 //checkbox perguntando sobre o font-size da página
-// import changeBorder from './components/changeBorder.js'
 const thisIsRem = () =>{
 
     const divCheck = document.getElementById('divCheck');
