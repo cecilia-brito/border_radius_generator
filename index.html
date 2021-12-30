@@ -11,20 +11,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=VT323&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <main>
+
+        <h1 class="title">Border Radius</h1>
+
         <div class="box-form-inputs">
-            <input class="pattern-input" type="text">
-            <input class="pattern-input" type="number">
-            <input id="topLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
-            <input id="topRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+            <input id="input-unit-of-measurement" class="pattern-input" type="text" value="rem" onkeyup="thisIsRem()">
+
+            <div class="checkForRem" id="divCheck">
+                <input id="forRem" type="checkbox" class="input-checkbox">
+                <label for="forRem">Considerar font-size da tag html como 62.5%?</label>
+            </div>
+
+            <input id="topLeft" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
+            <input id="topRight" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
 
             <div class="form" id="element-example">
             </div>
 
-            <input id="bottomLeft" class="pattern-input" type="number" onkeyup="changeBorder()" value="0"> 
-            <input id="bottomRight" class="pattern-input" type="number" onkeyup="changeBorder()" value="0">
+            <input id="bottomLeft" class="pattern-input" type="text" onkeyup="changeBorder()" value="0"> 
+            <input id="bottomRight" class="pattern-input" type="text" onkeyup="changeBorder()" value="0">
+
+            <blockquote>
+
+            </blockquote>
         </div>
             <script>
                 let formExample = document.getElementById('element-example');
@@ -33,13 +49,36 @@
                 let borderTopLeft;
                 let borderBottomLeft;
                 let borderBottomRight;
+                let check;
+                let divCheck
+                let pageHtml;
 
+                function thisIsRem(){
+
+                        changeBorder();
+                        
+                        divCheck = document.getElementById('divCheck');
+                        check = document.getElementById('forRem');
+                        pageHtml = document.querySelector("html");
+
+                        if(borderMeasure.value != 'rem'){
+                            divCheck.classList.add("desactive");
+                        } else{
+                            divCheck.classList.remove("desactive");
+                        }
+
+                        if(borderMeasure.value == 'rem' && check.checked){
+                            pageHtml.style.fontSize = 62.5 + '%'
+                        }
+                    }
 
                 function changeBorder(){
-                    formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + 'rem';
-                    formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + 'rem';
-                    formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + 'rem';
-                    formExample.style.borderTopRightRadius = document.getElementById('topRight').value + 'rem';
+                    borderMeasure = document.getElementById('input-unit-of-measurement');
+
+                    formExample.style.borderBottomLeftRadius = document.getElementById('bottomLeft').value + borderMeasure.value;
+                    formExample.style.borderBottomRightRadius = document.getElementById('bottomRight').value + borderMeasure.value;
+                    formExample.style.borderTopLeftRadius = document.getElementById('topLeft').value + borderMeasure.value;
+                    formExample.style.borderTopRightRadius = document.getElementById('topRight').value + borderMeasure.value;
 
                     console.log("rodou")
                   }
