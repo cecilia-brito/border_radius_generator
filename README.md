@@ -94,7 +94,7 @@ export default addCode;
 
 <p>Depois do addCode() ser executado o próximo será o thisIsRem()</p>
 
-´´´
+````
     const divCheck = document.getElementById('divCheck');
     let check = document.getElementById('forRem');
     const pageHtml = document.querySelector("html");
@@ -111,8 +111,7 @@ export default addCode;
 }
 
 export default thisIsRem;
-
-´´´
+````
 
 <p>Eu declarei o elemento checkbox e a div que ele está aninhado e também declarei a tag html, depois eu testei se a unidade de medida era difernte de 'rem', se fosse, a div receberia a class 'desactive' que mudaria a propriedade visibily dela para hidden, caso a unidade de medida fosse rem essa classe seria removida o que deixaria essa div visível e consequentemente o checkbox também</>
   
