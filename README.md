@@ -1,4 +1,4 @@
-# generator_border_radius
+# border_radius_generator
 
 Tabela de conteúdos
 =================
